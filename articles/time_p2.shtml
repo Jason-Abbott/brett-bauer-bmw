@@ -1,0 +1,19 @@
+<!--#include file="header1.inc" -->
+<td><font face="Tahoma, Arial, Helvetica" size=2>
+<a href="time_p1.shtml">&lt; page 1</a>
+</font></td>
+
+<td><font face="Tahoma, Arial, Helvetica" size=2><b>
+<a href=".">Articles</a>
+</b></font></td>
+
+<td><font face="Tahoma, Arial, Helvetica" size=2>
+<a href="time_p3.shtml">page 3 &gt;</a>
+</font></td>
+<!--#include file="header2.inc" -->
+
+<center>
+<img src="images/time_p2.jpg" width=508 height=750 alt="" border="1">
+</center>
+
+<!--#include file="footer.inc" -->

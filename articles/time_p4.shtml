@@ -1,0 +1,15 @@
+<!--#include file="header1.inc" -->
+<td><font face="Tahoma, Arial, Helvetica" size=2>
+<a href="time_p3.shtml">&lt; page 3</a>
+</font></td>
+
+<td><font face="Tahoma, Arial, Helvetica" size=2><b>
+<a href=".">Articles</a>
+</b></font></td>
+<!--#include file="header2.inc" -->
+
+<center>
+<img src="images/time_p4.jpg" width=694 height=884 alt="" border="1">
+</center>
+
+<!--#include file="footer.inc" -->
