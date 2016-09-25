@@ -1,0 +1,382 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Justin</title>
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+
+
+<script LANGUAGE="JavaScript" FPTYPE="dynamicanimation">
+<!--
+  // If you want to change this script, you must also make the following
+  // changes so that FrontPage will not overwrite your new script.
+  // In the script tag, change type="dynamicanimation" to type="mydynamicanimation"
+  // In the first script statement, change "dynamicanimation" to "mydynamicanimation"
+  // Throughout the HTML content, change dynamicanimation= to mydynamicanimation=
+  // Change function dynAnimation to function mydynAnimation
+  // In the body tag, change onload="dynAnimation()" to onload="mydynAnimation()"
+  dynamicanimAttr = "dynamicanimation"
+  animateElements = new Array()
+  currentElement = 0
+  speed = 0
+  stepsZoom = 8
+  stepsWord = 8
+  stepsFly = 12
+  stepsSpiral = 16
+  steps = stepsZoom
+  step = 0
+  outString = ""
+  function dynAnimation()
+  {
+    var ms = navigator.appVersion.indexOf("MSIE")
+    ie4 = (ms>0) && (parseInt(navigator.appVersion.substring(ms+5, ms+6)) >= 4)
+    if(!ie4)
+    {
+      if((navigator.appName == "Netscape") &&
+         (parseInt(navigator.appVersion.substring(0, 1)) >= 4))
+      {
+        for (index=document.layers.length-1; index >= 0; index--)
+        {
+            layer=document.layers[index]
+            if (layer.left==10000)
+                layer.left=0
+        }
+      }
+      return
+    }
+    for (index=document.all.length-1; index >= document.body.sourceIndex; index--)
+    {
+      el = document.all[index]
+      animation = el.getAttribute(dynamicanimAttr, false)
+      if(null != animation)
+      {
+        if(animation == "dropWord" || animation == "flyTopRightWord" || animation == "flyBottomRightWord")
+        {
+          ih = el.innerHTML
+          outString = ""
+          i1 = 0
+          iend = ih.length
+          while(true)
+          {
+            i2 = startWord(ih, i1)
+            if(i2 == -1)
+              i2 = iend
+            outWord(ih, i1, i2, false, "")
+            if(i2 == iend)
+              break
+            i1 = i2
+            i2 = endWord(ih, i1)
+            if(i2 == -1)
+              i2 = iend
+            outWord(ih, i1, i2, true, animation)
+            if(i2 == iend)
+              break
+            i1 = i2
+          }
+          document.all[index].innerHTML = outString
+          document.all[index].style.posLeft = 0
+          document.all[index].setAttribute(dynamicanimAttr, null)
+        }
+        if(animation == "zoomIn" || animation == "zoomOut")
+        {
+          ih = el.innerHTML
+          outString = "<SPAN " + dynamicanimAttr + "=\"" + animation + "\" style=\"position: relative; left: 10000;\">"
+          outString += ih
+          outString += "</SPAN>"
+          document.all[index].innerHTML = outString
+          document.all[index].style.posLeft = 0
+          document.all[index].setAttribute(dynamicanimAttr, null)
+        }
+      }
+    }
+    i = 0
+    for (index=document.body.sourceIndex; index < document.all.length; index++)
+    {
+      el = document.all[index]
+      animation = el.getAttribute(dynamicanimAttr, false)
+      if (null != animation)
+      {
+        if(animation == "flyLeft")
+        {
+          el.style.posLeft = 10000-offsetLeft(el)-el.offsetWidth
+          el.style.posTop = 0
+        }
+        else if(animation == "flyRight")
+        {
+          el.style.posLeft = 10000-offsetLeft(el)+document.body.offsetWidth
+          el.style.posTop = 0
+        }
+        else if(animation == "flyTop" || animation == "dropWord")
+        {
+          el.style.posLeft = 0
+          el.style.posTop = document.body.scrollTop-offsetTop(el)-el.offsetHeight
+        }
+        else if(animation == "flyBottom")
+        {
+          el.style.posLeft = 0
+          el.style.posTop = document.body.scrollTop-offsetTop(el)+document.body.offsetHeight
+        }
+        else if(animation == "flyTopLeft")
+        {
+          el.style.posLeft = 10000-offsetLeft(el)-el.offsetWidth
+          el.style.posTop = document.body.scrollTop-offsetTop(el)-el.offsetHeight
+        }
+        else if(animation == "flyTopRight" || animation == "flyTopRightWord")
+        {
+          el.style.posLeft = 10000-offsetLeft(el)+document.body.offsetWidth
+          el.style.posTop = document.body.scrollTop-offsetTop(el)-el.offsetHeight
+        }
+        else if(animation == "flyBottomLeft")
+        {
+          el.style.posLeft = 10000-offsetLeft(el)-el.offsetWidth
+          el.style.posTop = document.body.scrollTop-offsetTop(el)+document.body.offsetHeight
+        }
+        else if(animation == "flyBottomRight" || animation == "flyBottomRightWord")
+        {
+          el.style.posLeft = 10000-offsetLeft(el)+document.body.offsetWidth
+          el.style.posTop = document.body.scrollTop-offsetTop(el)+document.body.offsetHeight
+        }
+        else if(animation == "spiral")
+        {
+          el.style.posLeft = 10000-offsetLeft(el)-el.offsetWidth
+          el.style.posTop = document.body.scrollTop-offsetTop(el)-el.offsetHeight
+        }
+        else if(animation == "zoomIn")
+        {
+          el.style.posLeft = 10000
+          el.style.posTop = 0
+        }
+        else if(animation == "zoomOut")
+        {
+          el.style.posLeft = 10000
+          el.style.posTop = 0
+        }
+        else
+        {
+          el.style.posLeft = 10000-offsetLeft(el)-el.offsetWidth
+          el.style.posTop = 0
+        }
+        el.initLeft = el.style.posLeft
+        el.initTop = el.style.posTop
+        animateElements[i++] = el
+      }
+    }
+    window.setTimeout("animate();", speed)
+  }
+  function offsetLeft(el)
+  {
+    x = el.offsetLeft
+    for (e = el.offsetParent; e; e = e.offsetParent)
+      x += e.offsetLeft;
+    return x
+  } 
+  function offsetTop(el)
+  {
+    y = el.offsetTop
+    for (e = el.offsetParent; e; e = e.offsetParent)
+      y += e.offsetTop;
+    return y
+  } 
+  function startWord(ih, i)
+  {
+    for(tag = false; i < ih.length; i++)
+    {
+      c = ih.charAt(i)
+      if(c == '<')
+        tag = true
+      if(!tag)
+        return i
+      if(c == '>')
+        tag = false
+    }
+    return -1
+  }
+  function endWord(ih, i)
+  {
+    nonSpace = false
+    space = false
+    while(i < ih.length)
+    {
+      c = ih.charAt(i)
+      if(c != ' ')
+        nonSpace = true
+      if(nonSpace && c == ' ')
+        space = true
+      if(c == '<')
+        return i
+      if(space && c != ' ')
+        return i
+      i++
+    }
+    return -1
+  }
+  function outWord(ih, i1, i2, dyn, anim)
+  {
+    if(dyn)
+      outString += "<SPAN " + dynamicanimAttr + "=\"" + anim + "\" style=\"position: relative; left: 10000;\">"
+    outString += ih.substring(i1, i2)
+    if(dyn)
+      outString += "</SPAN>"
+  }
+  function animate()
+  {
+    el = animateElements[currentElement]
+    animation = el.getAttribute(dynamicanimAttr, false)
+    step++
+    if(animation == "spiral")
+    {
+      steps = stepsSpiral
+      v = step/steps
+      rf = 1.0 - v
+      t = v * 2.0*Math.PI
+      rx = Math.max(Math.abs(el.initLeft), 200)
+      ry = Math.max(Math.abs(el.initTop),  200)
+      el.style.posLeft = Math.ceil(-rf*Math.cos(t)*rx)
+      el.style.posTop  = Math.ceil(-rf*Math.sin(t)*ry)
+    }
+    else if(animation == "zoomIn")
+    {
+      steps = stepsZoom
+      el.style.fontSize = Math.ceil(50+50*step/steps) + "%"
+      el.style.posLeft = 0
+    }
+    else if(animation == "zoomOut")
+    {
+      steps = stepsZoom
+      el.style.fontSize = Math.ceil(100+200*(steps-step)/steps) + "%"
+      el.style.posLeft = 0
+    }
+    else
+    {
+      steps = stepsFly
+      if(animation == "dropWord" || animation == "flyTopRightWord" || animation == "flyBottomRightWord")
+        steps = stepsWord
+      dl = el.initLeft / steps
+      dt = el.initTop  / steps
+      el.style.posLeft = el.style.posLeft - dl
+      el.style.posTop = el.style.posTop - dt
+    }
+    if (step >= steps) 
+    {
+      el.style.posLeft = 0
+      el.style.posTop = 0
+      currentElement++
+      step = 0
+    }
+    if(currentElement < animateElements.length)
+      window.setTimeout("animate();", speed)
+  }
+//-->
+</script><meta name="Microsoft Theme" content="none, default">
+<meta name="Microsoft Border" content="none, default">
+</head>
+
+<body onload="dynAnimation()">
+
+<p>&nbsp;</p>
+
+<p align="center"><img src="images/hunkofcrunk.jpg" alt="hunkofcrunk.jpg (10967 bytes)" WIDTH="320" HEIGHT="138"></p>
+
+<p dynamicanimation="dropWord" style="position: relative !important; left: 10000 !important" align="center"><img src="images/justingirl3.jpg" alt="justingirl3.jpg (12260 bytes)" WIDTH="353" HEIGHT="139"></p>
+
+<p align="center">That's me ^</p>
+
+<p align="center">I Love Justin! He is SOOO HOT!</p>
+
+<p align="center"><img src="images/mrstimberlake.jpg" alt="mrstimberlake.jpg (13836 bytes)" WIDTH="480" HEIGHT="180"></p>
+
+<p align="center"><img src="images/justin_note.jpg" alt="justin note.bmp (207654 bytes)" WIDTH="230" HEIGHT="300"></p>
+
+<p align="center">Justin Randall Timberlake</p>
+
+<p align="center">Birth Date: January 31, 1981</p>
+
+<p align="center">Born in: Memphis, Tennesse</p>
+
+<p align="center">Eyes:Blue </p>
+
+<p align="center">Hair:Blonde</p>
+
+<p align="center">Sign:Aquarius</p>
+
+<p align="center">Fav. Food: Cereal, and Pasta</p>
+
+<p align="center">Fav. Color:Baby Blue</p>
+
+<p align="center">Favorite Childhood Toy according to Mom: &quot;Different guitars. He
+always dragged maround some kind of little plastic banjo or guitar&quot;</p>
+
+<p align="center">Fav. Song: &quot;G-d Must Have Spent A Little More Time On You, because
+&nbsp; it is the PERFECT love song. I'm a very Spirtual person so it relates to me.</p>
+
+<p align="center">Justin Pictures</p>
+
+<p align="center">Check these out</p>
+
+<p align="center"><a href="images/justmix3.wav">Justin Mix</a></p>
+
+<p align="center">Please click on the name to see the picture.</p>
+
+<p align="center"><a href="images/collage.jpg"><img src="images/collage_small.jpg" alt="collage.jpg (47013 bytes)" border="2" WIDTH="100" HEIGHT="83"></a></p>
+
+<p align="center"><a href="images/justintired.jpg"><img src="images/justintired_small.jpg" alt="justintired.jpg (10331 bytes)" border="2" WIDTH="100" HEIGHT="63"></a></p>
+
+<p align="center"><a href="images/look.jpg"><img src="images/look_small.jpg" alt="look.jpg (11296 bytes)" border="2" WIDTH="100" HEIGHT="113"></a></p>
+
+<p align="center"><a href="images/justin%20colage.jpg"><img src="images/justin_colage_small.jpg" alt="justin colage.jpg (13833 bytes)" border="2" WIDTH="100" HEIGHT="65"></a></p>
+
+<p align="center"><a href="images/justindriving.jpg"><img src="images/justindriving_small.jpg" alt="justindriving.jpg (12428 bytes)" border="2" WIDTH="100" HEIGHT="75"></a></p>
+
+<p align="center"><a href="images/bkwrdcap.jpg"><img src="images/bkwrdcap_small.jpg" alt="bkwrdcap.jpg (15101 bytes)" border="2" WIDTH="100" HEIGHT="138"></a></p>
+
+<p align="center"><a href="http://computername/mycarstereo/images/justin2.jpg"><img src="images/justin1.jpg" alt="wpeB.jpg (18086 bytes)" border="2" WIDTH="100" HEIGHT="75"></a></p>
+
+<p align="center"><a href="images/Timberflowers.art">Justin 1</a></p>
+
+<p align="center"><a href="images/justincouch.art">Justin 2</a></p>
+
+<p align="center"><a href="images/g-dsong2.art">Justin 3</a></p>
+
+<p align="center"><a href="images/cute.art">Justin 4</a></p>
+
+<p align="center"><a href="images/justinlookblack.art">Justin 5</a></p>
+
+<p align="center"><a href="images/justinkey..art">Justin 6</a></p>
+
+<p align="center"><a href="images/justin19.art">Justin 7</a></p>
+
+<p align="center"><a href="images/g-dsong1.art">Justin 8</a></p>
+
+<p align="center"><a href="images/looksideways.art">Justin 9</a></p>
+
+<p align="center"><a href="images/bballjust.art">Justin 10</a></p>
+
+<p align="center"><a href="images/justinlovers1.art">Justin 11</a></p>
+
+<p align="center"><a href="images/horsejust.art">Justin 12</a></p>
+
+<p align="center"><a href="images/musiclisteningJust.art">Justin 13</a></p>
+
+<p align="center"><a href="images/jjjj.art">Justin 14</a></p>
+
+<p align="center"><a href="images/bed.art">Justin 15</a></p>
+
+<p align="center"><a href="images/justin5.art">Justin 16</a></p>
+
+<p align="center">&nbsp;</p>
+
+<p align="center"><a href="images/obsessed.art">For Obsessed People</a></p>
+
+<p align="center"><a href="images/tooobig.art">Very Big</a></p>
+
+<p align="center">&nbsp;</p>
+
+<p align="center">&nbsp;</p>
+
+<p align="center">&nbsp;</p>
+
+<p align="center">&nbsp;</p>
+
+<p align="center">&nbsp; 
+</body>
+</html>

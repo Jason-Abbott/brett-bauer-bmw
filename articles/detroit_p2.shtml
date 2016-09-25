@@ -1,0 +1,13 @@
+<!--#include file="header1.inc" -->
+<td><font face="Tahoma, Arial, Helvetica" size=2>
+<a href="detroit_p1.shtml">&lt; page 1</a>
+</font></td>
+
+<td><font face="Tahoma, Arial, Helvetica" size=2><b>
+<a href=".">Articles</a>
+</b></font></td>
+<!--#include file="header2.inc" -->
+<center>
+<img src="images/detroit_p2.jpg" width=594 height=650 alt="" border="1">
+</center>
+<!--#include file="footer.inc" -->

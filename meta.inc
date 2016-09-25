@@ -1,0 +1,8 @@
+<meta http-equiv="description"
+content="# 1 BMW in caraudio with IASCA. The Brett Bauer car stereo page with Real Video of IASCAS finals and 20 competitors. 250 construction pictures of the beemer. Sony, Dynamat , Write-ups in Car Audio and Electronics, Car Stereo Review, Carsound and Time Magazine. FAQ from Mobileaudio. Automobile sound heaven.">
+<meta http-equiv="keywords"
+content="audio, zausmer, iasca, stereo, bmw, car, car audio, car stereo, car audio and electronics, car stereo review, auto sound security, sony, caraudio, automobile, beemer, carsound, real video, real audio, brett bauer, b &amp; W, Earl Zausmer, audio, mobileaudio, hifi, subwoofer, loudspeaker, Real Video, Real Audio, Car Audio And Electronics, Car Stereo Review, Auto Sound And Security, milbert, woofer, tweeter, dynamat, B &amp; W, , straightwire, sound, Sony, IASCA, Milbert, Dynamat, Straightwire, BMW,loudspeakers,Streetwire">
+<meta http-equiv="phrases"
+content="car audio, car stereo, Car Audio and Electronics, car audio and electronics, Car Stereo Review, car stereo review, Auto Sound And Security, auto sound and security, Real Video, real video, Real Audio, real audio, Brett Bauer, brett bauer, b &amp; w, B &amp; W,mobileaudio.com, Real Video">
+<meta http-equiv="title"
+content="# 1 IASCA BMW 540  Car Audio , Automotive car stereo and  Sony.  Earl Zausmer Caraudio, Building Of Car Site,  with Real Video interviews and tours of competitors audio system.  250 pictures of how the beemer was built.">

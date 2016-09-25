@@ -1,0 +1,68 @@
+<!--#include file="header1.inc" -->
+<td><font face="Verdana, Arial, Helvetica" size=5 color="#daae82"><b>Articles</b></font></td>
+<!--#include file="header2.inc" -->
+
+<table cellspacing=1 cellpadding=1 border=0>
+<tr>
+	<td align="center" bgcolor="#990000">
+<font face="Tahoma, Arial, Helvetica" size=2 color="#daae82"><b>Time Magazine</b></font>
+	</td>
+<tr>
+	<td align="center">
+<a href="time_cover.shtml"><img src="images/time_cover_small.jpg" width=76 height=100 alt="" border="1"></a>
+<a href="time_p1.shtml"><img src="images/time_p1_small.jpg" width=73 height=100 alt="" border="1"></a>
+<a href="time_p2.shtml"><img src="images/time_p2_small.jpg" width=68 height=100 alt="" border="1"></a>
+<a href="time_p3.shtml"><img src="images/time_p3_small.jpg" width=77 height=100 alt="" border="1"></a>
+<a href="time_p4.shtml"><img src="images/time_p4_small.jpg" width=79 height=100 alt="" border="1"></a>
+	</td>
+</table>
+
+<table cellspacing=1 cellpadding=1 border=0>
+<tr>
+	<td align="center" bgcolor="#990000">
+<font face="Tahoma, Arial, Helvetica" size=2 color="#daae82"><b>Roundel</b></font>
+	</td>
+	<td align="center" bgcolor="#990000">
+<font face="Tahoma, Arial, Helvetica" size=2 color="#daae82"><b>Autosound</b></font>
+	</td>
+	<td align="center" bgcolor="#990000">
+<font face="Tahoma, Arial, Helvetica" size=2 color="#daae82"><b>Vibe Magazine</b></font>
+	</td>
+<tr>
+	<td align="center">
+<a href="roundel_cover.shtml"><img src="images/roundel_cover_small.jpg" width=72 height=100 alt="" border="1"></a>
+<a href="roundel_p1.shtml"><img src="images/roundel_p1_small.jpg" width=68 height=100 alt="" border="1"></a>
+<a href="roundel_p2.shtml"><img src="images/roundel_p2_small.jpg" width=72 height=100 alt="" border="1"></a>
+	</td>
+	<td align="center">
+<a href="autosound.shtml"><img src="images/autosound_small.jpg" width=71 height=100 alt="" border="1"></a>
+	</td>
+	<td align="center">
+<a href="vibe.shtml"><img src="images/vibe_small.jpg" width=157 height=100 alt="" border="1"></a>
+	</td>
+</table>
+
+<table cellspacing=1 cellpadding=1 border=0>
+<tr>
+	<td align="center" bgcolor="#990000">
+<font face="Tahoma, Arial, Helvetica" size=2 color="#daae82"><b>Detroit Free Press</b></font>
+	</td>
+	<td align="center" bgcolor="#990000">
+<font size=1>&nbsp;</font>
+	</td>
+<tr>
+	<td align="center">
+<a href="detroit_p1.shtml"><img src="images/detroit_p1_small.jpg" width=41 height=100 alt="" border="1"></a>
+<a href="detroit_p2.shtml"><img src="images/detroit_p2_small.jpg" width=91 height=100 alt="" border="1"></a>
+	</td>
+	<td align="center">
+<a href="paper_p1.shtml"><img src="images/paper_p1_small.jpg" width=43 height=100 alt="" border="1"></a>
+<a href="paper_p2.shtml"><img src="images/paper_p2_small.jpg" width=53 height=100 alt="" border="1"></a>
+	</td>
+</table>
+
+<font face="Tahoma, Arial, Helvetica" size=2>
+These were carried in 211 newspapers across the United States.  Over 6 million copies were printed.
+</font>
+
+<!--#include file="footer.inc" -->

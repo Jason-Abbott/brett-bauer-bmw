@@ -1,0 +1,9 @@
+<!--#include file="header1.inc" -->
+<td><font face="Tahoma, Arial, Helvetica" size=2><b>
+<a href=".">Articles</a>
+</b></font></td>
+<!--#include file="header2.inc" -->
+<center>
+<img src="images/vibe.jpg" width=600 height=381 alt="" border="1">
+</center>
+<!--#include file="footer.inc" -->
